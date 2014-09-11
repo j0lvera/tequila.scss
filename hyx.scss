@@ -6,7 +6,7 @@ $gutter: 4%;    // - distance between columns
 $grid-size: 12; // - num of columns
 $width: 100%;   // - space that we want to use for the grid
 
-.cols ( $num , $in-gutter: $gutter, $global-gutter: $gutter ) {
+@mixin cols($num, $in-gutter: $gutter, $global-gutter: $gutter) {
 	$num-of-cols: 0;
 
 	@if $num < 1 { 
