@@ -59,7 +59,7 @@ $width: 100%;   // - space that we want to use for the grid
 // span
 
 @mixin span($num) { 
-	cols($num, 0, 0); 
+	@include cols($num, 0, 0); 
 }
 
 // edit
