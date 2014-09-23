@@ -9,10 +9,8 @@ $width: 100%;   // - space that we want to use for the grid
 @mixin cols($num, $in-gutter: $gutter, $global-gutter: $gutter) {
 	float: none;
 	width: 100%;
-	padding-left: 1em;
-	padding-right: 1em;
 
-	@media handheld, only screen and (max-width: 768px) {
+	@media handheld, only screen and (min-width: 768px) {
 	$num-of-cols: 0;
 
 	@if $num < 1 { 
