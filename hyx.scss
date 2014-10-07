@@ -1,18 +1,11 @@
-/*! Hyx v1.0.0 | MIT License | http://github.com/thinkxl/hyx */
+/*! Hyx v1.0.2 | MIT License | http://github.com/thinkxl/hyx */
 
 // Settings 
-
 $gutter: 4%;    // - distance between columns
 $grid-size: 12; // - num of columns
 $width: 100%;   // - space that we want to use for the grid
 
 @mixin cols($num, $in-gutter: $gutter, $global-gutter: $gutter) {
-	float: none;
-	width: 100%;
-	padding-left: 1em;
-	padding-right: 1em;
-
-	@media handheld, only screen and (max-width: 768px) {
 	$num-of-cols: 0;
 
 	@if $num < 1 { 
@@ -29,8 +22,6 @@ $width: 100%;   // - space that we want to use for the grid
 	float: left;
 	width: ( $width - ( $global-gutter * ( $cols - 1 ) ) ) / $cols;
 	margin-right: $in-gutter; 
-
-	}
 }
 
 // grid container
@@ -53,7 +44,6 @@ $width: 100%;   // - space that we want to use for the grid
 
 // box sizing reset
 // http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
-
 @mixin box-sizing() {
 	html {
 		box-sizing: border-box;
@@ -65,13 +55,13 @@ $width: 100%;   // - space that we want to use for the grid
 }
 
 // span
-
+// Same as `cols();` but without gutter
 @mixin span($num) { 
 	@include cols($num, 0, 0); 
 }
 
 // edit
-
+// It will make sites look from this: http://bit.ly/1CQmQwl to this: http://bit.ly/1CQmVjH 
 @mixin edit() {
 	* {
 		background: rgba(0,0,0,0.1);
