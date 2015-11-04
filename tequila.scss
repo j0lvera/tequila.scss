@@ -1,0 +1,145 @@
+/*! Tequila v3.0.0 | MIT License | http://github.com/thinkxl/tequila.scss */
+
+// Global settings
+$gutter: 4% !default;
+$grid-size: 12 !default;
+$width: 100% !default;
+$mobilefirst: true !default;
+
+// Mixin that does all the math in % for columns
+//
+// @param $num     {num} number of columns
+// @param $gutter  {num} gutter inhered from global `$gutter;`
+// @param $margin  {num} "gutter" that only affects this mixin
+//
+// @usage:
+//   `@include core(0, 2%, 0);`
+//   `@include core(1/4, 4%, 1%);`
+@mixin core($num, $gutter, $margin) {
+  $col-size: ($width / $grid-size);
+  $cols: ($width / ($col-size * $num));
+
+  // If width is 100% then we remove float and margin
+  @if $cols > 1 {
+    float: left;
+    margin-left: $margin;
+  } @else {
+    float: none;
+    margin-left: 0;
+  }
+
+  width: ($width - ($gutter * ($cols - 1))) / $cols;
+}
+
+// Allow to use fractions as number of colums
+//
+// @param $num    {num} fraction representing number of columns
+// @param $margin {num} overwrite @param `$gutter` mostly to set it `0`
+// @param $gutter {num} set `margin-right` to the global `$gutter` value
+//
+// @usage:
+//   `.col-1-3 {
+//     @include fraction(1/3);
+//   }
+//
+//   .col-1-2 {
+//     @include fraction(1/2);
+//   }`
+@mixin fraction($num, $margin: $gutter, $gutter: $gutter) {
+  @include core($num * $grid-size, $gutter, $margin);
+}
+
+// Main mixin that define the size in % based on columns
+//
+// @param $num    {num} number of columns
+// @param $margin {num} overwrite @param $gutter mostly to set it `0`
+// @param $gutter {num} set `margin-right` to the global `$gutter` value
+
+//
+// @usage:
+//   `.col-1-4 {
+//     .cols(3);
+//   }
+//
+//   .col-8 {
+//     .cols(8);
+//   }
+//
+//   /* If is first element with no namespace */
+//   #main {
+//     .cols(8, 0); /* set margin-left to 0 */
+//   }`
+@mixin cols($num, $margin: $gutter, $gutter: $gutter) {
+  @include core($num, $gutter, $margin);
+}
+
+@mixin span($num, $margin: 0, $gutter: $gutter) {
+  @include core($num, $gutter, $margin);
+}
+
+// It will take first element matching the attribute selector
+// and will add a `margin-left: 0;` to avoid collapsing, so we
+// can build grids like: `.col-8 {};` and `.col-4 {};`
+//
+// @param $name {String} namespace you want to use
+//
+// @usage:
+//   `@include namespace('grid-');`
+@mixin namespace($namespace: 'col-') {
+  [class^="#{$namespace}"]:first-child {
+    margin-left: 0 !important;
+  }
+}
+
+// Grid container
+.row {
+  width: 100%;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+// Box sizing reset
+// http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+//
+// @usage:
+//   `@include edit();`
+@mixin box-sizing() {
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}
+
+// It will make sites look from this: http://bit.ly/1CQmQwl to this: http://bit.ly/1CQmVjH
+//
+// @usage:
+//   `@include edit();`
+@mixin edit() {
+  * {
+    background: rgba(0,0,0,0.1);
+  }
+}
+
+// NOTE: Do not use this mixin
+//
+// a `respond-to` mixin, not finished yet need more testing
+@mixin tequila-to($size, $mobilefirst: $mobilefirst) {
+  $mobile: if($mobilefirst, 'min', 'max');
+
+  @media only screen and (#{$mobile}-width: $size) {
+    @content;
+  }
+}
