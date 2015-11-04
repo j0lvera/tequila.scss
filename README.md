@@ -11,42 +11,46 @@ Tequila.scss philosophy resides on Doug McIlroy's famous summation of the Unix p
 
 > Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
 
-Goals
------
-
-* Keep your DOM clean and semantic
-* Have a flexible gutter size: you can change it whenever you want and your grid won't break.
-* Be small, simple, fast and useful, take a look on the list of websites using it.
-* Mantain a powerful and easy to understand syntax, .cols(1/3); means one column of three, .cols(8); means one element with the size of eight columns.
-* Get only what you need, this tool is designed to build a grid ad-hoc to your needs. You are not stuck with a rigit API or only one way to build your grid.
-* You will get an extensible/hackeable result, hyx.less won't try to do all the work, you get a fluid grid system that you can use the way you want.
-
 Easy it is to use:
 
-  $ bower install tequila.scss
+```bash
+$ bower install tequila.scss
+```
 
-  ```scss
-  .col-1-2 {
-    @include fraction(1/2);
-  }
+```scss
+@import 'tequila';
 
-  sidebar {
-    @include cols(4, 0);
-  }
-  ```
+// Settings
+$gutter: 3%;
+@include namespace('col-');
 
-Features
---------
+.col-1-2 {
+  @include fraction(1/2);
+}
 
-- Be awesome
-- Make things faster
+sidebar {
+  @include cols(4, 0);
+}
+```
+
+Features and goals
+------------------
+
+- Flexibility between keep your DOM clean and semantic or use a more OOCSS-ish approach in your projects.
+- Have a flexible gutter size: you can change it whenever you want and your grid won't break.
+- Be small, simple, fast and useful.
+- Mantain a powerful and easy to understand syntax, `.cols(1/3);` for one column of three, and `.cols(8);` for one element with the size of eight columns.
+- Get only what you need, this tool is designed to build a grid ad-hoc to your project. You are not stuck with a rigid API.
+- You will get an extensible/hackeable result, Tequila.scss won't try to do all the work, you get a fluid grid system that you can modify any way you want.
 
 Installation
 ------------
 
 Install tequila.scss by running:
 
+```bash
   bower install tequila.scss
+```
 
 Contribute
 ----------

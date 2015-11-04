@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ## [3.0.0] - 2015-11-04
 ### Changed
 - Renamed to Tequila, because Bourbon and because I'm Mexican.
+- `README.md` updated.
 
 ### Added
 - `tequila-to` mixin for easy media queries management, with mobile first optional parameter.
