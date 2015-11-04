@@ -49,7 +49,7 @@ Installation
 Install tequila.scss by running:
 
 ```bash
-  bower install tequila.scss
+$ bower install tequila.scss
 ```
 
 Contribute
