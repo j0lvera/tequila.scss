@@ -1,13 +1,13 @@
 Tequila.scss
 ========
 
-A SCSS mixing that creates small, simple and useful fluid grid systems.
+A SCSS mixing that creates small, simple, and useful fluid grid systems.
 
-The last three years of freelancing I got several issues using other grids, not because they were bad, instead because there is not one complete solution for every problem.
+The last four years of freelancing I got several issues using other grids, not because they were bad, but because there is not one complete solution for every problem.
 
 I came up with my own solution, a mixing function that can create a fluid grid with the column sizes I need, only that, other customization to the grid can be done with the project requirements.
 
-Tequila.scss philosophy resides on Doug McIlroy's famous summation of the Unix philosophy:
+The goal of this project resides on Doug McIlroy's famous summation of the Unix philosophy:
 
 > Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.
 
@@ -32,6 +32,8 @@ sidebar {
   @include cols(4, 0);
 }
 ```
+
+**Note:** *Better documentation on how to create your own grid will be available soon. For now, you can check [Fraction.css](http://github.com/thinkxl/fraction.css), built with Tequila.scss.*
 
 Features and goals
 ------------------
