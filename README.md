@@ -55,8 +55,8 @@ Install tequila.scss by running:
 Contribute
 ----------
 
-- Issue Tracker: github.com/thinkxl/tequila.scss/issues
-- Source Code: github.com/thinkxl/tequila.scss/
+- Issue Tracker: http://github.com/thinkxl/tequila.scss/issues
+- Source Code: http://github.com/thinkxl/tequila.scss/
 
 Credits and Thanks
 ------------------
